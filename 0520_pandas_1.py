@@ -1,0 +1,31 @@
+import pandas as pd
+
+data = [120, 80, None, 60, 95, None, 110]
+stock1 = pd.Series(data)
+
+
+indices = ['Apple', 'Banana', 'Orange', 'Mango', 'Grape', 'Peach', 'Melon']
+stock2 = pd.Series(data, index=indices)
+
+
+stock3 = stock2.to_dict()
+
+
+print("stock1")
+print(stock1)
+
+print("\nstock2")
+print(stock2)
+
+print("\nstock3")
+print(stock3)
+
+
+print(f"\nBanana 的庫存值: {stock2['Banana']}")
+
+
+missing_count = stock2.isna().sum()
+print(f"\n缺失值數量: {missing_count}")
+
+
+stock2.to_csv('0520_stock.csv')
